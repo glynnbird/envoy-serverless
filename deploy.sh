@@ -16,3 +16,4 @@ cd ..
 # create API
 wsk api create -n "Cloudant Envoy - $ENVOY_DATABASE_NAME" /envoy "/$ENVOY_DATABASE_NAME" get envoy/get_db --response-type json
 wsk api create /envoy "/$ENVOY_DATABASE_NAME/_all_docs" get envoy/all_docs --response-type json
+wsk api create /envoy "/$ENVOY_DATABASE_NAME/_changes" get envoy/changes --response-type json

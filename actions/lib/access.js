@@ -9,7 +9,6 @@ var sha1 = function(string) {
 var addOwnerId = function(id, ownerid) {
   var match = id.match(/_local\/(.*)/);
   var hashownerid = sha1(ownerid);
-  console.log('hash', hashownerid);
   if (match) {
     var localid = match[1];
     return '_local/' + hashownerid + '-' + localid;

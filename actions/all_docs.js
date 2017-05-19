@@ -13,7 +13,6 @@ var getSelector = function(ownerid, query) {
 };
 
 function main(msg) {
-  console.log("message", msg);
 
   // security
   var user_id = security.checkCredentials(msg);
