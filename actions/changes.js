@@ -24,7 +24,6 @@ function main(msg) {
     }
   };
 
-
   // query filtered changes               
   return db.request( {
     db: msg.ENVOY_DATABASE_NAME,
