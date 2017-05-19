@@ -2,7 +2,7 @@ var security = require('./lib/security.js');
 var cloudant = require('./lib/db.js');
 
 function main(msg) {
-  console.log("message", msg);
+
   var user_id = security.checkCredentials(msg);
   
   // cloudant
