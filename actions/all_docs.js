@@ -16,14 +16,13 @@ function main(msg) {
 
   // security
   var user_id = security.checkCredentials(msg);
-  var params = utils.allowParams(['keys', 'include_docs'], msg);
+  var params = utils.allowParams(['keys', 'include_docs','conflicts'], msg);
 
   // cloudant
   var db = cloudant.configure(msg.COUCH_HOST, msg.ENVOY_DATABASE_NAME);
 
   // if the user is asking for specific keys
   if (params.keys) {
-    params.keys = JSON.parse(msg.keys);
     params.keys = msg.keys.map(function(id) {
       return access.addOwnerId(id, user_id);
     });

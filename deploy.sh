@@ -21,3 +21,4 @@ wsk api create /envoy "/$ENVOY_DATABASE_NAME/_changes" get envoy/changes --respo
 wsk api create /envoy "/$ENVOY_DATABASE_NAME/_bulk_docs" post envoy/bulk_docs --response-type json
 wsk api create /envoy "/$ENVOY_DATABASE_NAME/_bulk_get" get envoy/get_bulk_get --response-type http
 wsk api create /envoy "/$ENVOY_DATABASE_NAME/_bulk_get" post envoy/post_bulk_get --response-type json
+wsk api create /envoy "/$ENVOY_DATABASE_NAME/_revs_diff" post envoy/revs_diff --response-type json
