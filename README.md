@@ -3,7 +3,7 @@
 A version of [Cloudant Envoy](https://github.com/cloudant-labs/envoy) that deploys to a IBM OpenWhisk - a serverless computing platform. Having Envoy run in a serverless environment has several advantages:
 
 - you only pay for what you use
-- the OpenWhisk API system handles authentication
+- the OpenWhisk API system handles authentication, including social media oAuth
 - OpenWhisk handles the traffic scaling 
 
 ## Prerequisites
@@ -41,8 +41,10 @@ You can now visit the "API Management" section of your OpenWhisk dashboard:
 
 You can test your service with `curl`:
 
-    curl -H 'X-IBM-Client-ID: 0bd929c9-c8b7-43f7-856f-f2cbe33b9f50' \ 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/YOURSERVICEID/envoy/envoydb'
-    { ... some json .... }
+```sh
+> curl -H 'x-ibm-client-id: 0bd929c9-c8b7-43f7-856f-f2cbe33b9f50' \ 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/YOURSERVICEID/envoy/envoydb'
+{ ... some json .... }
+```
 
 or from PouchDB:
 
@@ -52,7 +54,7 @@ var url = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/YOURSER
 var opts = {
   ajax: { 
     headers: { 
-      'X-IBM-Client-ID': '60eaa0b0-0b84-4b02-abb1-726605890233'
+      'x-ibm-client-id': '60eaa0b0-0b84-4b02-abb1-726605890233'
     }
   }
 };
