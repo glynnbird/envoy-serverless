@@ -8,7 +8,9 @@ var sha1 = function(string) {
 // e.g. dog becomes glynn-dog
 var addOwnerId = function(id, ownerid) {
   var match = id.match(/_local\/(.*)/);
+  console.log('ownerid', ownerid);
   var hashownerid = sha1(ownerid);
+  console.log('hashownerid', hashownerid);
   if (match) {
     var localid = match[1];
     return '_local/' + hashownerid + '-' + localid;

@@ -9,12 +9,22 @@ var allowParams = function(paramsList, msg) {
     }
   }
   return obj;
-}
+};
+
+var removeOpenWhiskParams = function(msg) {
+  delete msg.__ow_method;
+  delete msg.__ow_headers;
+  delete msg.__ow_path;
+  delete msg.COUCH_HOST;
+  delete msg.ENVOY_DATABASE_NAME;
+  return msg;
+};
 
 
 //var utils = 
 
 module.exports = {
-  allowParams: allowParams
+  allowParams: allowParams,
+  removeOpenWhiskParams: removeOpenWhiskParams
 };
 

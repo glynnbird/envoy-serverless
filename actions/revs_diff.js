@@ -13,11 +13,7 @@ function main(msg) {
   var db = cloudant.configure(msg.COUCH_HOST, dbname);
 
   // strip the OpenWhisk stuff from the object
-  delete msg.__ow_method;
-  delete msg.__ow_headers;
-  delete msg.__ow_path;
-  delete msg.COUCH_HOST;
-  delete msg.ENVOY_DATABASE_NAME;
+  msg = utils.removeOpenWhiskParams(msg);
 
   // Now we can do the revs_diff
   return db.request({
